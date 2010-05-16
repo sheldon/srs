@@ -14,7 +14,7 @@ load 'deploy' if respond_to?(:namespace) # cap2 differentiator
 # form the root of the application path.
 
 set :application, "srs"
-role :web,        "#{application}.onelblackbear.com"
+role :web,        "#{application}.oneblackbear.com"
 set :user,        "#{application}"
 set :password,    '5r54321'
 
@@ -27,6 +27,13 @@ set :repository,  "git@github.com:sheldon/#{application}.git"
 set :branch,      "master"
 set :deploy_to,   "."
 
+set :cms_repository,  "git://github.com/phpwax/wildfire.git"
+set :cms_deploy_to,   "./plugins/cms"
+set :cms_branch,      "v4"
+
+set :wax_folder,      "./wax"
+set :wax_repository,  "git://github.com/phpwax/phpwax.git"
+set :wax_branch,      "v3"
 
 # =============================================================================
 # TASKS
@@ -37,7 +44,7 @@ set :deploy_to,   "."
 # must match the options given for the servers to select (like :primary => true)
 
 namespace :deploy do
-  
+
   desc "First setup of git clone after this point runs git pull"
   task :setup do
     run "git init"
@@ -53,5 +60,53 @@ namespace :deploy do
     end
     run "git pull origin #{branch}"
   end
+  
+end
 
+
+namespace :cms do
+  
+  desc "First setup of git clone after this point runs git pull"
+  task :setup do
+    run "mkdir -p #{cms_deploy_to}"
+    run "cd #{cms_deploy_to} && git init"
+    run "cd #{cms_deploy_to} && git remote add origin #{cms_repository}"
+  end
+  
+  desc "Runs a git pull to update the cms"
+  task :update do
+    begin
+      run "ls #{cms_deploy_to}/.git"
+    rescue
+      setup
+    end
+    run "cd #{cms_deploy_to} && git pull origin #{cms_branch}"
+  end
+  
+  desc "Updates the CMS database"
+  task :syncdb do
+    run "script/plugin syncdb production"
+  end
+  
+end
+
+namespace :wax do
+ 
+ desc "setup the framework directory"
+ task :setup do
+   run "mkdir -p #{wax_folder}"
+   run "cd #{wax_folder} && git init"
+   run "cd #{wax_folder} && git remote add origin #{wax_repository}"
+ end
+  
+ desc "Run a wax update"
+ task :update do
+   begin
+     run "ls #{wax_folder}/.git"
+   rescue
+     setup
+   end
+   run "cd #{wax_folder} && git pull origin #{wax_branch}"
+ end
+ 
 end
