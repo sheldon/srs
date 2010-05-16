@@ -26,10 +26,27 @@ a:hover{
   width:950px;
 }
 
+#logo{display:block; padding-top:20px;}
+
 #primary-nav a{
   float:left;
-  padding:20px;
+  padding:10px 20px 30px;
   font-size:197%;
+}
+
+#left-col{
+  float:left;
+  width:700px;
+  margin-right:50px;
+  overflow:hidden;
+}
+  p.news-date{float:right;}
+  .news-entry h2{font-size:138.5%;}
+  .news-entry h2{margin:10px 0;}
+
+#right-col{
+  float:left;
+  width:200px;
 }
 
 #footer-nav a{

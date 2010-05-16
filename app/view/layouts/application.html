@@ -10,7 +10,7 @@
 </head>
 <body>
 <div id="header" class="clearfix">
-  <a href="/"><img src="/images/srs-logo.png" alt="Serious Business Logo" title="Serious Business Logo" /></a>
+  <a id="logo" href="/"><img src="/images/srs-logo.png" alt="Serious Business Logo" title="Serious Business Logo" /></a>
   <ul id="primary-nav">
     <li><a href="">About</a></li>
     <li><a href="">Apply</a></li>
@@ -21,8 +21,13 @@
     <li><a href="">DKP</a></li>
   </ul>
 </div>
-<div id="main-body">
-  <?=$content_for_layout?>
+<div id="main-body" class="clearfix">
+  <div id="left-col">
+    <?=$content_for_layout?>
+  </div>
+  <div id="right-col">
+    
+  </div>
 </div>
 <div id="footer">
   <ul id="footer-nav">
