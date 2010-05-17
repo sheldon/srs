@@ -30,8 +30,13 @@ a:hover{
 
 #primary-nav a{
   float:left;
-  padding:10px 20px 30px;
+  margin:10px 10px 30px;
+  padding:4px 10px;
   font-size:197%;
+  background-color:rgba(0,0,0,0.5);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 
 #left-col{
@@ -40,9 +45,25 @@ a:hover{
   margin-right:50px;
   overflow:hidden;
 }
-  p.news-date{float:right;}
-  .news-entry h2{font-size:138.5%;}
-  .news-entry h2{margin:10px 0;}
+.news-entry{
+  margin:10px 0;
+}
+  p.news-date{
+    float:right;
+    margin-top:5px;
+  }
+  .news-entry h2{
+    float:left;
+    font-size:138.5%;
+    margin-bottom:10px;
+  }
+  .news-entry h2, p.news-date{
+    padding:4px 7px;
+    background-color:rgba(0,0,0,0.5);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
 
 #right-col{
   float:left;
@@ -51,6 +72,11 @@ a:hover{
 
 #footer-nav a{
   float:right;
+  margin:10px;
   padding:5px 10px;
   font-size:153.9%;
+  background-color:rgba(0,0,0,0.5);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
