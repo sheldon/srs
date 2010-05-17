@@ -28,6 +28,7 @@ a:hover{
 
 #logo{display:block; padding-top:20px;}
 
+#primary-nav li{display:inline;}
 #primary-nav a{
   float:left;
   margin:10px 10px 30px;
@@ -70,6 +71,7 @@ a:hover{
   width:200px;
 }
 
+#footer-nav li{display:inline;}
 #footer-nav a{
   float:right;
   margin:10px;
